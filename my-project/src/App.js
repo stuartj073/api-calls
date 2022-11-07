@@ -6,13 +6,24 @@ import Axios from 'axios'
 function App() {
   return (
     <div className="App">
-      const [joke, setJoke] = useState("");
+      // using Axios
+
+      {/* const [joke, setJoke] = useState("");
       const getJoke = () => {
         Axios.get('https://official-joke-api.appspot.com/random_joke').then(
           (response) => {
             setJoke(response.data.setup + "..." + response.data.punchline);
           }
         )
+      } */}
+
+      // using Fetch
+      const getJoke = () => {
+        fetch('https://official-joke-api.appspot.com/random_joke')
+          .then((response) => response.json())
+          .then(data) => {
+            setJoke(data.setup + "..." + data.punchline);
+          }
       }
 
       <header className="App-header">
